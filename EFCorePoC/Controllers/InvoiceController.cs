@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EFCorePoC.DTOs;
+using EFCorePoC.Models;
+using EFCorePoC.Repository;
 using EFCorePoC.Services;
 using EFCorePoC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -36,7 +38,17 @@ namespace EFCorePoC.Controllers
         public IActionResult AddNewInvoice(AddNewInvoiceViewModel viewModel)
         {
             var info = viewModel;//add breakpoint here to see the values passed into info variable
+            //var invoiceRepo = new InvoiceRepository(InvoiceDbContext);
+            //var invoiceService = new InvoiceService();
+                    
+
+            _service.LookAtInvoice(info.invoiceDTO);
+
+
             return View("Index");
         }
+
+        
+
     }
 }
