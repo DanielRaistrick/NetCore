@@ -1,7 +1,55 @@
-﻿
+﻿@model EFCorePoC.ViewModels.AddNewInvoiceViewModel
+
 @{
-    ViewData["Title"] = "AddNewInvoice";
+    ViewData["Title"] = Model.invoiceDTO.CompanyName;
 }
+
+
 
 <h2>On this page we wil look at adding new invoices</h2>
 
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddNewInvoice">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="invoiceDTO.InvoiceNumber" class="control-label"></label>
+                <input asp-for="invoiceDTO.InvoiceNumber" class="form-control" />
+                <span asp-validation-for="invoiceDTO.InvoiceNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="invoiceDTO.InvoiceDate" class="control-label"></label>
+                <input asp-for="invoiceDTO.InvoiceDate" class="form-control" />
+                <span asp-validation-for="invoiceDTO.InvoiceDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="invoiceDTO.CustomerReference" class="control-label"></label>
+                <input asp-for="invoiceDTO.CustomerReference" class="form-control" />
+                <span asp-validation-for="invoiceDTO.ContactLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="invoiceDTO.CompanyName" class="control-label"></label>
+                <input asp-for="invoiceDTO.CompanyName" class="form-control" />
+                <span asp-validation-for="invoiceDTO.CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="invoiceDTO.ContactFirstName" class="control-label"></label>
+                <input asp-for="invoiceDTO.ContactFirstName" class="form-control" />
+                <span asp-validation-for="invoiceDTO.ContactFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="invoiceDTO.ContactLastName" class="control-label"></label>
+                <input asp-for="invoiceDTO.ContactLastName" class="form-control" />
+                <span asp-validation-for="invoiceDTO.ContactLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="invoiceDTO.NumberOfItems" class="control-label"></label>
+                <input asp-for="invoiceDTO.NumberOfItems" class="form-control" />
+                <span asp-validation-for="invoiceDTO.NumberOfItems" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 ﻿using EFCorePoC.Models;
+using EFCorePoC.Models.InvoiceDbModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,14 @@ namespace EFCorePoC.Repository
         public string getInfo()
         {
             var record = _context.Invoices.FirstOrDefault();
-            return record.TestItem;
+            return record.NumberOfItems.ToString();
+        }
+
+        public Invoice AcceptInvoice(Invoice inv)
+        {
+
+            var invValues = inv;
+            return null;
         }
     }
 }

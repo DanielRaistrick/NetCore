@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EFCorePoC.Services
+namespace EFCorePoC.ViewModels
 {
-    public interface IInvoiceService
+    public class AddNewInvoiceViewModel
     {
-        string getText();
+        public InvoiceDTO invoiceDTO { get; set; }
 
-        string LookAtInvoice(InvoiceDTO dto);
     }
 }
