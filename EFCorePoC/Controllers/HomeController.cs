@@ -12,7 +12,7 @@ namespace EFCorePoC.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Invoice");
         }
 
         public IActionResult About()

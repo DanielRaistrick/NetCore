@@ -21,5 +21,10 @@ namespace EFCorePoC.Controllers
             var test = _service.getText();
             return View();
         }
+
+        public IActionResult AddNewInvoice()
+        {
+            return View();
+        }
     }
 }
