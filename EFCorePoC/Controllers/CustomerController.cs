@@ -12,5 +12,10 @@ namespace EFCorePoC.Controllers
         {
             return View();
         }
+
+        public IActionResult AddNewCustomer()
+        {
+            return View();
+        }
     }
 }
