@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EFCorePoC.Models;
 using EFCorePoC.Repository;
 using EFCorePoC.Services;
 using Microsoft.AspNetCore.Builder;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -38,6 +40,12 @@ namespace EFCorePoC
 
             services.AddScoped<IInvoiceService, InvoiceService>();
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+            services.AddScoped<InvoiceDbContext, InvoiceDbContext>();
+
+            services.AddDbContext<DbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("InvoiceDbConnection"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
