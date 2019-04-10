@@ -18,7 +18,7 @@ namespace EFCorePoC.Repository
         public string getInfo()
         {
             var record = _context.Invoices.FirstOrDefault();
-            return record.TestItem;
+            return record.NumberOfItems.ToString();
         }
     }
 }
