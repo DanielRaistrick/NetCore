@@ -21,7 +21,7 @@ namespace EFCorePoC.DTOs
         [Display(Name = "Contact Last Name")]
         public string ContactLastName { get; set; }
         [Display(Name = "Invoice Date")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime InvoiceDate { get; set; }
         [Display(Name = "Invoice Number")]
         public int InvoiceNumber { get; set; }
@@ -38,8 +38,6 @@ namespace EFCorePoC.DTOs
             invoice.InvoiceNumber = dto.InvoiceNumber;
             invoice.InvoiceDate = dto.InvoiceDate;
             
-            //For Dan R to finish
-
             return invoice;
         }
     }

@@ -22,7 +22,6 @@ namespace EFCorePoC.Controllers
 
         public IActionResult Index()
         {
-            var test = _service.getText();
             return View();
         }
 
@@ -37,18 +36,21 @@ namespace EFCorePoC.Controllers
         [HttpPost]
         public IActionResult AddNewInvoice(AddNewInvoiceViewModel viewModel)
         {
-            var info = viewModel;//add breakpoint here to see the values passed into info variable
-            //var invoiceRepo = new InvoiceRepository(InvoiceDbContext);
-            //var invoiceService = new InvoiceService();
-                    
-
-            _service.LookAtInvoice(info.invoiceDTO);
-
+            _service.PostInvoiceDTO(viewModel.invoiceDTO);
 
             return View("Index");
         }
 
-        
+        public IActionResult DeleteInvoice()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public IActionResult DeleteInvoice(int x)
+        {
+            _service.DeleteInvoice(x);
+            return View();
+        }
     }
 }
