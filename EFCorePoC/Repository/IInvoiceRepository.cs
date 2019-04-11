@@ -9,6 +9,6 @@ namespace EFCorePoC.Repository
     public interface IInvoiceRepository
     {
         void PostInvoice(Invoice inv);
-        void DeleteInvoice(int x);
+        void DeleteInvoice(int id);
     }
 }

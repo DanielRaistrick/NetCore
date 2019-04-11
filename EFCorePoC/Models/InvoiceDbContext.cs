@@ -13,8 +13,8 @@ namespace EFCorePoC.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=SAGE019562;initial catalog=Invoice;persist security info=True;user id=user;password=user;");
-            //optionsBuilder.UseSqlServer("Data Source=SAGE019153;initial catalog=Invoice;persist security info=True;user id=dan;password=dan;");
+            //optionsBuilder.UseSqlServer("Data Source=SAGE019562;initial catalog=Invoice;persist security info=True;user id=user;password=user;");
+            optionsBuilder.UseSqlServer("Data Source=SAGE019153;initial catalog=Invoice;persist security info=True;user id=dan;password=dan;");
         }
     }
 }

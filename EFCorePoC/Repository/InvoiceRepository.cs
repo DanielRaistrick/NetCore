@@ -23,9 +23,9 @@ namespace EFCorePoC.Repository
             _context.SaveChanges();
         }
 
-        public void DeleteInvoice(int x)
+        public void DeleteInvoice(int id)
         {
-            var inv = _context.Invoices.Where(i => i.Id == x).FirstOrDefault();
+            var inv = _context.Invoices.Where(i => i.Id == id).FirstOrDefault();
             _context.Invoices.Remove(inv);
             _context.SaveChanges();
         }

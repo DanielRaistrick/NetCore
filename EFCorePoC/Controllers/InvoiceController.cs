@@ -47,9 +47,9 @@ namespace EFCorePoC.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteInvoice(int x)
+        public IActionResult DeleteInvoice(DeleteInvoiceViewModel viewModel)
         {
-            _service.DeleteInvoice(x);
+            _service.DeleteInvoice(viewModel.idToDelete);
             return View();
         }
     }

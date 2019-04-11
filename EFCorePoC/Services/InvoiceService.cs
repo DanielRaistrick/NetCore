@@ -32,9 +32,9 @@ namespace EFCorePoC.Services
             _repository.PostInvoice(dto.ConvertDTOToInvoice(dto));
         }
 
-        public void DeleteInvoice(int x)
+        public void DeleteInvoice(int id)
         {
-            _repository.DeleteInvoice(x);
+            _repository.DeleteInvoice(id);
         }
     }
 }
