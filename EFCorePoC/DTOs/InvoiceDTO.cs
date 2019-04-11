@@ -29,11 +29,12 @@ namespace EFCorePoC.DTOs
         public Invoice ConvertDTOToInvoice(InvoiceDTO dto)
         {
             Invoice invoice = new Invoice();
+            invoice.Customer = new Customer();
             invoice.Id = dto.Id;
             invoice.NumberOfItems = dto.NumberOfItems;
-            invoice.CompanyName = dto.CompanyName;
-            invoice.ContactFirstName = dto.ContactFirstName;
-            invoice.ContactLastName = dto.ContactLastName;
+            invoice.Customer.CustomerName = dto.CompanyName;
+            invoice.Customer.ContactFirstName = dto.ContactFirstName;
+            invoice.Customer.ContactLastName = dto.ContactLastName;
             invoice.CustomerReference = dto.CustomerReference;
             invoice.InvoiceNumber = dto.InvoiceNumber;
             invoice.InvoiceDate = dto.InvoiceDate;

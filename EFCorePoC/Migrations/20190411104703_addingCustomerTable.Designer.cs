@@ -4,14 +4,16 @@ using EFCorePoC.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFCorePoC.Migrations
 {
     [DbContext(typeof(InvoiceDbContext))]
-    partial class InvoiceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190411104703_addingCustomerTable")]
+    partial class addingCustomerTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace EFCorePoC.Migrations
 
                     b.Property<string>("ContactLastName");
 
-                    b.Property<string>("CustomerName");
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
@@ -42,7 +44,11 @@ namespace EFCorePoC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CustomerId");
+                    b.Property<string>("CompanyName");
+
+                    b.Property<string>("ContactFirstName");
+
+                    b.Property<string>("ContactLastName");
 
                     b.Property<string>("CustomerReference");
 
@@ -52,13 +58,7 @@ namespace EFCorePoC.Migrations
 
                     b.Property<int>("NumberOfItems");
 
-                    b.Property<int?>("ProductId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CustomerId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Invoices");
                 });
@@ -78,17 +78,6 @@ namespace EFCorePoC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("EFCorePoC.Models.InvoiceDbModels.Invoice", b =>
-                {
-                    b.HasOne("EFCorePoC.Models.InvoiceDbModels.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId");
-
-                    b.HasOne("EFCorePoC.Models.InvoiceDbModels.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
                 });
 #pragma warning restore 612, 618
         }

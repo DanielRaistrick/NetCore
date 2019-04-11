@@ -1,7 +1,34 @@
-﻿
+﻿@model EFCorePoC.ViewModels.AddNewCustomerModel
 @{
     ViewData["Title"] = "AddNewCustomer";
 }
 
 <h2>AddNewCustomer</h2>
 
+<h2>On this page we wil look at adding a new customer</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddNewCustomer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="customerDTO.CustomerName" class="control-label"></label>
+                <input asp-for="customerDTO.CustomerName" class="form-control" />
+                <span asp-validation-for="customerDTO.CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="customerDTO.ContactFirstName" class="control-label"></label>
+                <input asp-for="customerDTO.ContactFirstName" class="form-control" />
+                <span asp-validation-for="customerDTO.ContactFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="customerDTO.ContactLastName" class="control-label"></label>
+                <input asp-for="customerDTO.ContactLastName" class="form-control" />
+                <span asp-validation-for="customerDTO.ContactLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
