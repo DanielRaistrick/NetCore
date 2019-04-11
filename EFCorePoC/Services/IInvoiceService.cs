@@ -8,8 +8,7 @@ namespace EFCorePoC.Services
 {
     public interface IInvoiceService
     {
-        string getText();
-
-        string LookAtInvoice(InvoiceDTO dto);
+        void PostInvoiceDTO(InvoiceDTO dto);
+        void DeleteInvoice(int invId);
     }
 }

@@ -16,17 +16,18 @@ namespace EFCorePoC.Repository
             _context = context;
         }
 
-        public string getInfo()
+
+        public void PostInvoice(Invoice inv)
         {
-            var record = _context.Invoices.FirstOrDefault();
-            return record.NumberOfItems.ToString();
+            _context.Invoices.Add(inv);
+            _context.SaveChanges();
         }
 
-        public Invoice AcceptInvoice(Invoice inv)
+        public void DeleteInvoice(int x)
         {
-
-            var invValues = inv;
-            return null;
+            var inv = _context.Invoices.Where(i => i.Id == x).FirstOrDefault();
+            _context.Invoices.Remove(inv);
+            _context.SaveChanges();
         }
     }
 }

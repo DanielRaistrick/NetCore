@@ -8,8 +8,7 @@ namespace EFCorePoC.Repository
 {
     public interface IInvoiceRepository
     {
-        string getInfo();
-
-        Invoice AcceptInvoice(Invoice inv);
+        void PostInvoice(Invoice inv);
+        void DeleteInvoice(int x);
     }
 }

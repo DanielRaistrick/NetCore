@@ -18,27 +18,23 @@ namespace EFCorePoC.Services
             _repository = repository;
         }
 
-        public string getText()
+        public void PostInvoiceDTO(InvoiceDTO dto)
         {
-            return _repository.getInfo();
-        }
-
-        public string LookAtInvoice(InvoiceDTO dto)
-        {
+            /* - not sure what this is for?
             char[] cArray = dto.CompanyName.ToCharArray();
             string reverse = String.Empty;
             for (int i = cArray.Length - 1; i > -1; i--)
             {
                 reverse += cArray[i];
             }
+            */
 
-            Invoice invoice = new Invoice();
-            InvoiceDTO invoiceDTO = new InvoiceDTO();
-            invoice = invoiceDTO.ConvertDTOToInvoice(dto);
-            _repository.AcceptInvoice(invoice);
-            //convert dto to invoice
+            _repository.PostInvoice(dto.ConvertDTOToInvoice(dto));
+        }
 
-            return reverse;
+        public void DeleteInvoice(int x)
+        {
+            _repository.DeleteInvoice(x);
         }
     }
 }
