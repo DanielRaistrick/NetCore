@@ -1,0 +1,22 @@
+﻿@model EFCorePoC.ViewModels.DeleteCustomerViewModel
+@{
+    ViewData["Title"] = "DeleteCustomer";
+}
+
+<h2>DeleteCustomer</h2>
+
+<h1>Which Customer Id to delete</h1>
+
+<form asp-action="DeleteCustomer">
+    <div class="form-group">
+        <label asp-for="idToDelete" class="control-label"></label>
+        <input asp-for="idToDelete" class="form-control" />
+        <span asp-validation-for="idToDelete" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="DELETE" class="btn btn-default" />
+    </div>
+
+    <a href="@Url.Action("AddNewCustomer", "Customer")">Add new customer</a>
+</form>

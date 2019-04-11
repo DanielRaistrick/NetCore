@@ -13,18 +13,15 @@ namespace EFCorePoC.Models.InvoiceDbModels
         public int NumberOfItems { get; set; }
         public string CustomerReference { get; set; }
 
-        public string CompanyName { get; set; }
-
-        public string ContactFirstName { get; set; }
-
-        public string ContactLastName { get; set; }
-
+        
         public DateTime InvoiceDate { get; set; }
 
         public int InvoiceNumber { get; set; }
 
 
+        public Customer Customer { get; set; }
 
+        public Product Product { get; set; }
 
 
 
