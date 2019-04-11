@@ -1,7 +1,23 @@
-﻿
+﻿@model EFCorePoC.ViewModels.DeleteInvoiceViewModel
+
 @{
-    ViewData["Title"] = "DeleteInvoice";
+    ViewData["Title"] = "DELETE TEST";
 }
 
 <h2>DeleteInvoice</h2>
 
+<h1>Which invoice to delete ?</h1>
+
+<form asp-action="DeleteInvoice">
+    <div class="form-group">
+        <label asp-for="idToDelete" class="control-label"></label>
+        <input asp-for="idToDelete" class="form-control" />
+        <span asp-validation-for="idToDelete" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="DELETE" class="btn btn-default" />
+    </div>
+
+    <a href="@Url.Action("AddNewInvoice", "Invoice")">Add new invoice</a>
+</form>
