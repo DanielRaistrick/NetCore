@@ -24,14 +24,14 @@ namespace EFCorePoC.Controllers
 
         public IActionResult AddNewCustomer()
         {
-            var viewModel = new AddNewCustomerModel();
+            var viewModel = new AddNewCustomerViewModel();
             viewModel.customerDTO = new CustomerDTO();
 
             return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult AddNewCustomer(AddNewCustomerModel viewModel)
+        public IActionResult AddNewCustomer(AddNewCustomerViewModel viewModel)
         {
             _service.CreateCustomerDTO(viewModel.customerDTO);
 

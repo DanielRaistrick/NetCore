@@ -1,14 +1,12 @@
-﻿using EFCorePoC.DTOs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace EFCorePoC.ViewModels
 {
-    public class AddNewCustomerModel
+    public class DeleteProductViewModel
     {
-
-        public CustomerDTO customerDTO { get; set; }
+        public int idToDelete { get; set; }
     }
 }

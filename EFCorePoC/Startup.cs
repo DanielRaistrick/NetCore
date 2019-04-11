@@ -43,6 +43,8 @@ namespace EFCorePoC
             services.AddScoped<InvoiceDbContext, InvoiceDbContext>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
 
             services.AddDbContext<DbContext>(options =>
