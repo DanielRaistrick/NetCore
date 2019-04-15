@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using EFCorePoC.Services;
+using EFCorePoC.ViewModels;
+using EFCorePoC.DTOs;
 
 namespace EFCorePoC.Controllers
 {
     public class ProductController : Controller
     {
+        private readonly IProductService _service;
+
+        public ProductController(IProductService service)
+        {
+            _service = service;
+        }
         public IActionResult Index()
         {
             return View();
@@ -15,6 +24,29 @@ namespace EFCorePoC.Controllers
 
         public IActionResult AddNewProduct()
         {
+            var viewModel = new AddNewProductViewModel();
+            viewModel.productDTO = new ProductDTO();
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult AddNewProduct (AddNewProductViewModel viewModel)
+        {
+            _service.CreateProductDTO(viewModel.productDTO);
+
+            return View("Index");
+        }
+
+        public IActionResult DeleteProduct()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DeleteProduct (DeleteProductViewModel viewModel)
+        {
+            _service.DeleteProduct (viewModel.idToDelete);
             return View();
         }
     }
