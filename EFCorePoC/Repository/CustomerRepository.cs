@@ -28,5 +28,11 @@ namespace EFCorePoC.Repository
             _context.Customers.Remove(cust);
             _context.SaveChanges();
         }
+
+        //Note - delete when we have Nigel/Chris's end point
+        public List<Customer> ReturnAllCustomers()
+        {
+            return _context.Customers.ToList();
+        }
     }
 }

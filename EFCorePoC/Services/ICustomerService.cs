@@ -9,7 +9,7 @@ namespace EFCorePoC.Services
     public interface ICustomerService
     {
         void CreateCustomerDTO(CustomerDTO dto);
-
         void DeleteCustomer(int id);
+        List<CustomerDTO> ReturnAllCustomers();
     }
 }

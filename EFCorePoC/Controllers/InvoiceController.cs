@@ -29,6 +29,7 @@ namespace EFCorePoC.Controllers
         {
             var viewModel = new AddNewInvoiceViewModel();
             viewModel.invoiceDTO = new InvoiceDTO();
+            viewModel.customerList = _service.ReturnAllCustomers();
 
             return View(viewModel);
         }
