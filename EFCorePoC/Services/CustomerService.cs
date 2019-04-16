@@ -25,5 +25,20 @@ namespace EFCorePoC.Services
         {
             _repository.DeleteCustomer(id);
         }
+
+        public List<CustomerDTO> ReturnAllCustomers()
+        {
+            //note - replace this line with a call to Chris/Nigel's service
+            var customerList = _repository.ReturnAllCustomers();
+            List<CustomerDTO> allCustomerDTOList = new List<CustomerDTO>();
+            foreach (var customer in customerList)
+            {
+                CustomerDTO customerDTO = new CustomerDTO();
+                customerDTO.ConvertCustomerToDto(customer);
+                allCustomerDTOList.Add(customerDTO);
+            }
+
+            return allCustomerDTOList;
+        }
     }
 }

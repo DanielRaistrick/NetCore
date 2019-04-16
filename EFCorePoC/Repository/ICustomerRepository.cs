@@ -12,6 +12,7 @@ namespace EFCorePoC.Repository
 
         void DeleteCustomer(int id);
 
-        //void EditCustomer(Customer cust);
+        //note - delete this call when we have Chris/Nigel's end point
+        List<Customer> ReturnAllCustomers();
     }
 }

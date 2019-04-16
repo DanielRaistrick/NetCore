@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="invoiceDTO.CustomerReference" class="control-label"></label>
-                <input asp-for="invoiceDTO.CustomerReference" class="form-control" />
+                <input asp-for="invoiceDTO.CustomerReference" asp-items="Model.customerList" class="form-control" />
                 <span asp-validation-for="invoiceDTO.ContactLastName" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -47,6 +47,13 @@
                 <input asp-for="invoiceDTO.NumberOfItems" class="form-control" />
                 <span asp-validation-for="invoiceDTO.NumberOfItems" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="invoiceDTO.CompanyName" class="control-label"></label>
+                <select asp-for="invoiceDTO.CompanyName" asp-items="Model.customerList" class="form-control"></select>
+                <span asp-validation-for="invoiceDTO.CompanyName" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>

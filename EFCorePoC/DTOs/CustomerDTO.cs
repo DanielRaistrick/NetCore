@@ -48,5 +48,13 @@ namespace EFCorePoC.DTOs
 
             return customer;
         }
+
+        public void ConvertCustomerToDto(Customer cust)
+        {
+            this.Id = cust.Id;
+            this.CustomerName = cust.CustomerName;
+            this.ContactFirstName = cust.ContactFirstName;
+            this.ContactLastName = cust.ContactLastName;
+        }
     }   
 }

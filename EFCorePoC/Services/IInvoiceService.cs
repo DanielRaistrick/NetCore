@@ -1,4 +1,5 @@
 ﻿using EFCorePoC.DTOs;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace EFCorePoC.Services
     {
         void PostInvoiceDTO(InvoiceDTO dto);
         void DeleteInvoice(int invId);
+        IEnumerable<SelectListItem> ReturnAllCustomers();
     }
 }
