@@ -17,6 +17,27 @@ namespace EFCorePoC.DTOs
         [Display(Name = "Contact last Name")]
         public string ContactLastName { get; set; }
 
+        //Acc Ref
+        //balance
+        //Inactive
+        //street1
+        //street2
+        //town
+        //country
+        //PostCode
+        //Country
+        //VAT number
+        //Trade Contact
+        //Telephone
+        //Telephone2
+        //Website
+        //Social Media feeds
+        //email addresses
+        //credt control
+        //defaults
+        //communications
+        //activity
+
         public Customer ConvertDTOToCustomer(CustomerDTO dto)
         {
             Customer customer = new Customer();
