@@ -18,6 +18,24 @@ namespace EFCorePoC.DTOs
         [Display(Name = "Quantity in Stock")]
         public double QuantityInStock { get; set; }
 
+        //location
+        public string Location { get; set; }
+        //product Group
+        public string ProductGroup { get; set; }
+        //Tax code
+        public int TaxCode { get; set; }
+        //Product Code
+        public string ProductCode { get; set; }
+        //description
+        //Weight
+        //Cost Price
+        //Unit of Sale
+        //Free stock
+        //Nominal Code
+        //Web link
+        //image
+        //Discount structure
+
         public Product ConvertDTOToProduct (ProductDTO dto)
         {
             Product product = new Product();
@@ -25,6 +43,10 @@ namespace EFCorePoC.DTOs
             product.Name = dto.Name;
             product.UnitPrice = dto.UnitPrice;
             product.QuantityInStock = dto.QuantityInStock;
+            product.Location = dto.Location;
+            product.TaxCode = dto.TaxCode;
+            product.ProductCode = dto.ProductCode;
+
 
             return product;
         }

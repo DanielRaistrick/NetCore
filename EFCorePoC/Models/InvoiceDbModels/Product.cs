@@ -13,5 +13,9 @@ namespace EFCorePoC.Models.InvoiceDbModels
         public string Name { get; set; }
         public decimal UnitPrice { get; set; }
         public double QuantityInStock { get; set; }
+        public string Location { get; set; }
+        public string ProductGroup { get; set; }
+        public int TaxCode { get; set; }
+        public string ProductCode { get; set; }
     }
 }
