@@ -52,12 +52,16 @@ namespace EFCorePoC.DTOs
             return product;
         }
 
-
-        public void ConvertProductToDto(Product prod)
+        public void ConvertProductToDTO(Product product)
         {
-            this.Id = prod.Id;
-            this.ProductCode = prod.ProductCode;            
+            this.Id = product.Id;
+            this.Name = product.Name;
+            this.Location = product.Location;
+            this.ProductCode = product.ProductCode;
+            this.ProductGroup = product.ProductGroup;
+            this.QuantityInStock = product.QuantityInStock;
+            this.TaxCode = product.TaxCode;
+            this.UnitPrice = product.UnitPrice;
         }
-
     }
 }

@@ -8,7 +8,6 @@ namespace EFCorePoC.ViewModels
 {
     public class AddNewCustomerViewModel
     {
-
         public CustomerDTO customerDTO { get; set; }
     }
 }

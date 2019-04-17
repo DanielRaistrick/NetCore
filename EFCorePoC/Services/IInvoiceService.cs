@@ -9,7 +9,7 @@ namespace EFCorePoC.Services
 {
     public interface IInvoiceService
     {
-        void PostInvoiceDTO(InvoiceDTO dto);
+        void PostInvoiceDTO(InvoiceDTO dto, int customerId);
         void DeleteInvoice(int invId);
         IEnumerable<SelectListItem> ReturnAllCustomers();
         IEnumerable<SelectListItem> ReturnAllProducts();

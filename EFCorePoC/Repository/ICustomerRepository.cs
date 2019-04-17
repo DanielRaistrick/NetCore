@@ -14,5 +14,6 @@ namespace EFCorePoC.Repository
 
         //note - delete this call when we have Chris/Nigel's end point
         List<Customer> ReturnAllCustomers();
+        Customer ReturnCustomerById(int id);
     }
 }

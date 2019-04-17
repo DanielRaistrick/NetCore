@@ -9,7 +9,6 @@ namespace EFCorePoC.Services
     public interface IProductService
     {
         void CreateProductDTO (ProductDTO dto);
-
         void DeleteProduct (int id);
         List<ProductDTO> ReturnAllProducts();
     }

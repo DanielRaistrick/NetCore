@@ -11,5 +11,6 @@ namespace EFCorePoC.Services
         void CreateCustomerDTO(CustomerDTO dto);
         void DeleteCustomer(int id);
         List<CustomerDTO> ReturnAllCustomers();
+        CustomerDTO ReturnCustomerById(int id);
     }
 }

@@ -12,5 +12,8 @@ namespace EFCorePoC.ViewModels
         public InvoiceDTO invoiceDTO { get; set; }
         public IEnumerable<SelectListItem> customerList { get; set; }
         public IEnumerable<SelectListItem> productList { get; set; }
+        public int customerId { get; set; }
+        public int productId { get; set; }
+
     }
 }

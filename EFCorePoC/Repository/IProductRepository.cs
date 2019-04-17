@@ -11,10 +11,7 @@ namespace EFCorePoC.Repository
         void CreateProduct(Product product);
 
         void DeleteProduct(int id);
-
-        //void EditProduct(Product product);
-
-        //note - delete this call when we have Chris/Nigel's end point
+      
         List<Product> ReturnAllProducts();
 
     }

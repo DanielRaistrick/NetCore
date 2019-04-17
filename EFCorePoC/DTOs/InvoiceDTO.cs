@@ -14,12 +14,6 @@ namespace EFCorePoC.DTOs
         public int NumberOfItems { get; set; }
         [Display(Name = "Customer Reference")]
         public string CustomerReference { get; set; }
-        [Display(Name = "Company Name")]
-        public string CompanyName { get; set; }
-        [Display(Name = "Contact First Name")]
-        public string ContactFirstName { get; set; }
-        [Display(Name = "Contact Last Name")]
-        public string ContactLastName { get; set; }
         [Display(Name = "Invoice Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime InvoiceDate { get; set; }
@@ -28,15 +22,16 @@ namespace EFCorePoC.DTOs
         [Display(Name = "Product Code")]
         public string ProductCode { get; set; }
 
-        public Invoice ConvertDTOToInvoice(InvoiceDTO dto)
+        public Invoice ConvertDTOToInvoice(InvoiceDTO dto, CustomerDTO custDTO)
         {
             Invoice invoice = new Invoice();
             invoice.Customer = new Customer();
-            invoice.Id = dto.Id;
+            invoice.Id = 0;
             invoice.NumberOfItems = dto.NumberOfItems;
-            invoice.Customer.CustomerName = dto.CompanyName;
-            invoice.Customer.ContactFirstName = dto.ContactFirstName;
-            invoice.Customer.ContactLastName = dto.ContactLastName;
+            invoice.Customer.Id = custDTO.Id;
+            invoice.Customer.ContactFirstName = custDTO.ContactFirstName;
+            invoice.Customer.ContactLastName = custDTO.ContactLastName;
+            invoice.Customer.CustomerName = custDTO.CustomerName;
             invoice.CustomerReference = dto.CustomerReference;
             invoice.InvoiceNumber = dto.InvoiceNumber;
             invoice.InvoiceDate = dto.InvoiceDate;
