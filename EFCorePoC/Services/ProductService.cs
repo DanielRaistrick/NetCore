@@ -24,5 +24,20 @@ namespace EFCorePoC.Services
         {
             _repository.DeleteProduct(id);
         }
+
+        public List<ProductDTO> ReturnAllProducts()
+        {
+            //note replace this with a call to chris/nigel Serivce
+            var productList = _repository.ReturnAllProducts();
+            List<ProductDTO> allProductsDTOList = new List<ProductDTO>();
+            foreach (var product in productList)
+            {
+                ProductDTO productDTO = new ProductDTO();
+                productDTO.ConvertProductToDto(product);
+                allProductsDTOList.Add(productDTO);
+            }
+
+            return allProductsDTOList;
+        }
     }
 }

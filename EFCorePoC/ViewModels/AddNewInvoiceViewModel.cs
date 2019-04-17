@@ -14,5 +14,6 @@ namespace EFCorePoC.ViewModels
         public IEnumerable<SelectListItem> productList { get; set; }
         public int customerId { get; set; }
         public int productId { get; set; }
+
     }
 }

@@ -47,5 +47,19 @@ namespace EFCorePoC.Services
 
             return result;
         }
+
+        public IEnumerable<SelectListItem> ReturnAllProducts()
+        {
+            //note - this will ideally call Chris and Nigel's class in the future, but for now I'm just wiring this in so we can return the customers
+            List<ProductDTO> productList = _productService.ReturnAllProducts();
+                        
+            var result = productList.Select(a => new SelectListItem
+            {
+                Value = a.Id.ToString(),
+                Text = a.ProductCode.ToString()                 
+            });            
+
+            return result;
+        }
     }
 }

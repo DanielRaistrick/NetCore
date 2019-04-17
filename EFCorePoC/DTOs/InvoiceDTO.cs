@@ -19,6 +19,8 @@ namespace EFCorePoC.DTOs
         public DateTime InvoiceDate { get; set; }
         [Display(Name = "Invoice Number")]
         public int InvoiceNumber { get; set; }
+        [Display(Name = "Product Code")]
+        public string ProductCode { get; set; }
 
         public Invoice ConvertDTOToInvoice(InvoiceDTO dto, CustomerDTO custDTO)
         {
@@ -33,6 +35,7 @@ namespace EFCorePoC.DTOs
             invoice.CustomerReference = dto.CustomerReference;
             invoice.InvoiceNumber = dto.InvoiceNumber;
             invoice.InvoiceDate = dto.InvoiceDate;
+            invoice.ProductCode = dto.ProductCode;
             
             return invoice;
         }

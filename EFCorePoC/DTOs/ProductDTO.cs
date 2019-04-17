@@ -25,6 +25,7 @@ namespace EFCorePoC.DTOs
         //Tax code
         public int TaxCode { get; set; }
         //Product Code
+        [Required(ErrorMessage = "This is an error message")]
         public string ProductCode { get; set; }
         //description
         //Weight

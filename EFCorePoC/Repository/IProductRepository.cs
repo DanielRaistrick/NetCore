@@ -11,5 +11,8 @@ namespace EFCorePoC.Repository
         void CreateProduct(Product product);
 
         void DeleteProduct(int id);
+      
+        List<Product> ReturnAllProducts();
+
     }
 }
