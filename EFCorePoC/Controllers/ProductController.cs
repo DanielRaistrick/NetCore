@@ -23,19 +23,25 @@ namespace EFCorePoC.Controllers
         }
 
         public IActionResult AddNewProduct()
-        {
+        {            
             var viewModel = new AddNewProductViewModel();
             viewModel.productDTO = new ProductDTO();
 
-            return View(viewModel);
+            return View(viewModel);  
         }
 
         [HttpPost]
         public IActionResult AddNewProduct (AddNewProductViewModel viewModel)
-        {
-            _service.CreateProductDTO(viewModel.productDTO);
-
-            return View("Index");
+        {            
+            if (ModelState.IsValid)
+            {
+                _service.CreateProductDTO(viewModel.productDTO);
+                return View("Index");
+            }
+            else
+            {
+                return Json(new { status = "error", message = "error creating product", commonSense = "add a product code" });
+            }
         }
 
         public IActionResult DeleteProduct()

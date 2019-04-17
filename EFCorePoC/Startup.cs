@@ -36,6 +36,12 @@ namespace EFCorePoC
             });
 
 
+            //services.AddMvc(options =>
+            //{
+            //    options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
+            //        (_) => "The field is required.");
+            //})
+            //.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddScoped<IInvoiceService, InvoiceService>();

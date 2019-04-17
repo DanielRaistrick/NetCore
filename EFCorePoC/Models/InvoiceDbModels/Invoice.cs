@@ -16,6 +16,7 @@ namespace EFCorePoC.Models.InvoiceDbModels
         public int InvoiceNumber { get; set; }
         public Customer Customer { get; set; }
         public Product Product { get; set; }
+        public String ProductCode { get; set; }
 
     }
 }

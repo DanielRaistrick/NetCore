@@ -14,5 +14,8 @@ namespace EFCorePoC.Repository
 
         //void EditProduct(Product product);
 
+        //note - delete this call when we have Chris/Nigel's end point
+        List<Product> ReturnAllProducts();
+
     }
 }

@@ -12,5 +12,6 @@ namespace EFCorePoC.Services
         void PostInvoiceDTO(InvoiceDTO dto);
         void DeleteInvoice(int invId);
         IEnumerable<SelectListItem> ReturnAllCustomers();
+        IEnumerable<SelectListItem> ReturnAllProducts();
     }
 }
