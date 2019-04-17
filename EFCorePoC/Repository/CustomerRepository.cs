@@ -34,5 +34,11 @@ namespace EFCorePoC.Repository
         {
             return _context.Customers.ToList();
         }
+
+        //note - delete when we have an object cache
+        public Customer ReturnCustomerById(int id)
+        {
+            return _context.Customers.Where(c => c.Id == id).SingleOrDefault();
+        }
     }
 }

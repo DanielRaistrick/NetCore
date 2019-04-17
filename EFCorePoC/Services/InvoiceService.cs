@@ -14,16 +14,19 @@ namespace EFCorePoC.Services
     {
         private readonly IInvoiceRepository _repository;
         private readonly ICustomerService _customerService;
+        private readonly IProductService _productService;
 
-        public InvoiceService(IInvoiceRepository repository, ICustomerService customerService)
+        public InvoiceService(IInvoiceRepository repository, ICustomerService customerService, IProductService productService)
         {
             _repository = repository;
             _customerService = customerService;
+            _productService = productService;
         }
 
-        public void PostInvoiceDTO(InvoiceDTO dto)
+        public void PostInvoiceDTO(InvoiceDTO dto, int customerId)
         {
-            _repository.PostInvoice(dto.ConvertDTOToInvoice(dto));
+            CustomerDTO customerDTO = _customerService.ReturnCustomerById(customerId);
+            _repository.PostInvoice(dto.ConvertDTOToInvoice(dto, customerDTO));
         }
 
         public void DeleteInvoice(int id)

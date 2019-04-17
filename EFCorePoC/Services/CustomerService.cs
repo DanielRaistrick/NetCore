@@ -40,5 +40,13 @@ namespace EFCorePoC.Services
 
             return allCustomerDTOList;
         }
+
+        public CustomerDTO ReturnCustomerById(int customerId)
+        {
+            //note - replace this with a call to the object cache ultimately
+            CustomerDTO result = new CustomerDTO();
+            result.ConvertCustomerToDto(_repository.ReturnCustomerById(customerId));
+            return result;
+        }
     }
 }
