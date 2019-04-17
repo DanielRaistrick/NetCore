@@ -14,11 +14,13 @@ namespace EFCorePoC.Services
     {
         private readonly IInvoiceRepository _repository;
         private readonly ICustomerService _customerService;
+        private readonly IProductService _productService;
 
-        public InvoiceService(IInvoiceRepository repository, ICustomerService customerService)
+        public InvoiceService(IInvoiceRepository repository, ICustomerService customerService, IProductService productService)
         {
             _repository = repository;
             _customerService = customerService;
+            _productService = productService;
         }
 
         public void PostInvoiceDTO(InvoiceDTO dto)
@@ -41,6 +43,20 @@ namespace EFCorePoC.Services
                 Value = a.Id.ToString(),
                 Text = a.CustomerName.ToString()
             });
+
+            return result;
+        }
+
+        public IEnumerable<SelectListItem> ReturnAllProducts()
+        {
+            //note - this will ideally call Chris and Nigel's class in the future, but for now I'm just wiring this in so we can return the customers
+            List<ProductDTO> productList = _productService.ReturnAllProducts();
+                        
+            var result = productList.Select(a => new SelectListItem
+            {
+                Value = a.Id.ToString(),
+                Text = a.ProductCode.ToString()                 
+            });            
 
             return result;
         }
