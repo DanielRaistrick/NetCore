@@ -33,11 +33,19 @@ namespace EFCorePoC.Services
             foreach (var product in productList)
             {
                 ProductDTO productDTO = new ProductDTO();
-                productDTO.ConvertProductToDto(product);
+                productDTO.ConvertProductToDTO(product);
                 allProductsDTOList.Add(productDTO);
             }
 
             return allProductsDTOList;
+        }
+
+        public ProductDTO ReturnProductById(int productId)
+        {
+            //note - replace this with a call to the object cache ultimately
+            ProductDTO result = new ProductDTO();
+            result.ConvertProductToDTO(_repository.ReturnProductById(productId));
+            return result;
         }
     }
 }

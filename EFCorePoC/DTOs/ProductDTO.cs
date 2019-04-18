@@ -17,7 +17,6 @@ namespace EFCorePoC.DTOs
         public decimal UnitPrice { get; set; }
         [Display(Name = "Quantity in Stock")]
         public double QuantityInStock { get; set; }
-
         //location
         public string Location { get; set; }
         //product Group

@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="invoiceDTO.InvoiceDate" class="control-label"></label>
-                <input asp-for="invoiceDTO.InvoiceDate" class="form-control" />
+                <input type="date" asp-for="invoiceDTO.InvoiceDate" class="form-control" />
                 <span asp-validation-for="invoiceDTO.InvoiceDate" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -26,16 +26,6 @@
                 <label asp-for="customerId" class="control-label"></label>
                 <select asp-for="customerId" asp-items="Model.customerList" class="form-control"></select>
                 <span asp-validation-for="customerId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="invoiceDTO.ProductCode" class="control-label"></label>
-                <select asp-for="invoiceDTO.ProductCode" asp-items="Model.productList" class="form-control"></select>
-                <span asp-validation-for="invoiceDTO.ProductCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="invoiceDTO.ContactFirstName" class="control-label"></label>
-                <input asp-for="invoiceDTO.ContactFirstName" class="form-control" />
-                <span asp-validation-for="invoiceDTO.ContactFirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="productId" class="control-label"></label>

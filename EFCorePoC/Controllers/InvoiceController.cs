@@ -38,7 +38,7 @@ namespace EFCorePoC.Controllers
         [HttpPost]
         public IActionResult AddNewInvoice(AddNewInvoiceViewModel viewModel)
         {
-            _service.PostInvoiceDTO(viewModel.invoiceDTO, viewModel.customerId);
+            _service.PostInvoiceDTO(viewModel.invoiceDTO, viewModel.customerId, viewModel.productId);
 
             return View("Index");
         }
