@@ -11,5 +11,6 @@ namespace EFCorePoC.Services
         void CreateProductDTO (ProductDTO dto);
         void DeleteProduct (int id);
         List<ProductDTO> ReturnAllProducts();
+        ProductDTO ReturnProductById(int id);
     }
 }

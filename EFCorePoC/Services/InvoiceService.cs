@@ -23,10 +23,11 @@ namespace EFCorePoC.Services
             _productService = productService;
         }
 
-        public void PostInvoiceDTO(InvoiceDTO dto, int customerId)
+        public void PostInvoiceDTO(InvoiceDTO dto, int customerId, int productId)
         {
             CustomerDTO customerDTO = _customerService.ReturnCustomerById(customerId);
-            _repository.PostInvoice(dto.ConvertDTOToInvoice(dto, customerDTO));
+            ProductDTO productDTO = _productService.ReturnProductById(productId);
+            _repository.PostInvoice(dto.ConvertDTOToInvoice(dto, customerDTO, productDTO));
         }
 
         public void DeleteInvoice(int id)

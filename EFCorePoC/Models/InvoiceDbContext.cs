@@ -16,6 +16,7 @@ namespace EFCorePoC.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=NVPP-WEBSQL-01;initial catalog=PoC-FinancialsTeam;persist security info=True;user id=Financialsteam;password=5tur0cks19;");
+            //optionsBuilder.UseSqlServer("Data Source=SAGE019562;initial catalog=Invoice;persist security info=True;user id=user;password=user;");
         }
     }
 }

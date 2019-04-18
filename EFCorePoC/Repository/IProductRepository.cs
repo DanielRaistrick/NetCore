@@ -9,10 +9,8 @@ namespace EFCorePoC.Repository
     public interface IProductRepository
     {
         void CreateProduct(Product product);
-
         void DeleteProduct(int id);
-      
         List<Product> ReturnAllProducts();
-
+        Product ReturnProductById(int id);
     }
 }

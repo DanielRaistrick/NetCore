@@ -19,13 +19,12 @@ namespace EFCorePoC.DTOs
         public DateTime InvoiceDate { get; set; }
         [Display(Name = "Invoice Number")]
         public int InvoiceNumber { get; set; }
-        [Display(Name = "Product Code")]
-        public string ProductCode { get; set; }
 
-        public Invoice ConvertDTOToInvoice(InvoiceDTO dto, CustomerDTO custDTO)
+        public Invoice ConvertDTOToInvoice(InvoiceDTO dto, CustomerDTO custDTO, ProductDTO productDTO)
         {
             Invoice invoice = new Invoice();
             invoice.Customer = new Customer();
+            invoice.Product = new Product();
             invoice.Id = 0;
             invoice.NumberOfItems = dto.NumberOfItems;
             invoice.Customer.Id = custDTO.Id;
@@ -35,7 +34,14 @@ namespace EFCorePoC.DTOs
             invoice.CustomerReference = dto.CustomerReference;
             invoice.InvoiceNumber = dto.InvoiceNumber;
             invoice.InvoiceDate = dto.InvoiceDate;
-            invoice.ProductCode = dto.ProductCode;
+            invoice.Product.Id = productDTO.Id;
+            invoice.Product.Location = productDTO.Location;
+            invoice.Product.Name = productDTO.Name;
+            invoice.Product.ProductCode = productDTO.ProductCode;
+            invoice.Product.ProductGroup = productDTO.ProductGroup;
+            invoice.Product.QuantityInStock = productDTO.QuantityInStock;
+            invoice.Product.TaxCode = productDTO.TaxCode;
+            invoice.Product.UnitPrice = productDTO.UnitPrice;
             
             return invoice;
         }
