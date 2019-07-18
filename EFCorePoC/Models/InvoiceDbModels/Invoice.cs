@@ -17,5 +17,21 @@ namespace EFCorePoC.Models.InvoiceDbModels
         public Customer Customer { get; set; }
         public Product Product { get; set; }
 
+        public int customerId { get; set; }
+
+        public int productId { get; set; }
+
+        public decimal Quantity { get; set; }
+
+        public decimal ItemNet { get; set; }
+        public decimal TotalNet { get; set; }
+
+        public decimal TotalTax { get; set; }
+
+        public decimal TotalGross { get; set; }
+
+        public decimal TaxRate { get; set; }
+
     }
 }
+

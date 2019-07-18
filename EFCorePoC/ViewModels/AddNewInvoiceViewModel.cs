@@ -14,6 +14,12 @@ namespace EFCorePoC.ViewModels
         public IEnumerable<SelectListItem> productList { get; set; }
         public int customerId { get; set; }
         public int productId { get; set; }
+        public decimal quantity { get; set; }
+        public decimal totaltax { get; set; }
+        public decimal totalGross { get; set; }
+        public decimal totalnet { get; set; }
+        public decimal taxRate { get; set; }
+        public decimal itemNet { get; set; }
 
     }
 }

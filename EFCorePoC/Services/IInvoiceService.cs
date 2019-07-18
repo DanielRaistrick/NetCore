@@ -13,5 +13,7 @@ namespace EFCorePoC.Services
         void DeleteInvoice(int invId);
         IEnumerable<SelectListItem> ReturnAllCustomers();
         IEnumerable<SelectListItem> ReturnAllProducts();
+        //InvoiceDTO calculateTotalGross(InvoiceDTO dto);
+        
     }
 }

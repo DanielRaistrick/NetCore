@@ -1,4 +1,5 @@
 ﻿using EFCorePoC.DTOs;
+using EFCorePoC.Models.InvoiceDbModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace EFCorePoC.Services
         void CreateCustomerDTO(CustomerDTO dto);
         void DeleteCustomer(int id);
         List<CustomerDTO> ReturnAllCustomers();
-        CustomerDTO ReturnCustomerById(int id);
+        //Customer ReturnCustomerById(int id);
+
+        CustomerDTO ReturnCustomerByIdOld(int id);
     }
 }

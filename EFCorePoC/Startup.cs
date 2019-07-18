@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EFCorePoC.GraphQL;
 using EFCorePoC.Models;
 using EFCorePoC.Repository;
 using EFCorePoC.Services;
+using GraphQL;
+using GraphQL.Server;
+using GraphQL.Server.Ui.Playground;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -36,13 +40,15 @@ namespace EFCorePoC
             });
 
 
-            //services.AddMvc(options =>
-            //{
-            //    options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
-            //        (_) => "The field is required.");
-            //})
-            //.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(options =>
+            {
+                options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
+                    (_) => "The field is required.");
+            })
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
 
             services.AddScoped<IInvoiceService, InvoiceService>();
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
@@ -51,6 +57,13 @@ namespace EFCorePoC
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IProductRepository, ProductRepository>();
+
+            services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(
+                s.GetRequiredService));
+            services.AddScoped<InvoiceSchema>();
+            //services.AddGraphQL(o => { o.ExposeExceptions = true; })
+            //    .AddGraphTypes(ServiceLifetime.Scoped)
+            //    .AddDataLoader();
 
 
             services.AddDbContext<DbContext>(options =>
@@ -71,6 +84,9 @@ namespace EFCorePoC
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
+            //app.UseGraphQL<InvoiceSchema>();
+            //app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

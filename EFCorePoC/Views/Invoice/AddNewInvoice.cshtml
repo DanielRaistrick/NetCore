@@ -37,6 +37,20 @@
                 <input asp-for="invoiceDTO.NumberOfItems" class="form-control" />
                 <span asp-validation-for="invoiceDTO.NumberOfItems" class="text-danger"></span>
             </div>
+            <div class="form-group" max-width="1px">
+                <label asp-for="invoiceDTO.Quantity" class="control-label" ></label>
+                <input asp-for="invoiceDTO.Quantity" class="form-control" />
+                <span asp-validation-for="invoiceDTO.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="invoiceDTO.ItemNet" class="control-label"></label>
+                <input asp-for="invoiceDTO.ItemNet" class="form-control" />
+                <span asp-validation-for="invoiceDTO.ItemNet" class="text-danger"></span>
+
+                <label asp-for="invoiceDTO.TaxRate" class="control-label"></label>
+                <input asp-for="invoiceDTO.TaxRate" class="form-control" />
+                <span asp-validation-for="invoiceDTO.TaxRate" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>

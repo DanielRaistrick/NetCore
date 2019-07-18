@@ -10,5 +10,14 @@ namespace EFCorePoC.Repository
     {
         void PostInvoice(Invoice inv);
         void DeleteInvoice(int id);
+        void UpdateInvoice(Invoice invoice);
+
+        List<Invoice> ReturnAllInvoices();
+
+        IQueryable<Invoice> ReturnInvoice(int id);
+
+        IEnumerable<Invoice> GetAll();
+
+        IQueryable<Customer> GetCustomerForInvoice(int id);
     }
 }

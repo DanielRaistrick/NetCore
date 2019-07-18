@@ -36,13 +36,48 @@ namespace EFCorePoC.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("EFCorePoC.Models.InvoiceDbModels.Invoice", b =>
+            modelBuilder.Entity("EFCorePoC.Models.InvoiceDbModels.Genre", b =>
+                {
+                    b.Property<byte>("Id");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genres");
+                });
+
+            modelBuilder.Entity("EFCorePoC.Models.InvoiceDbModels.Gig", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CustomerId");
+                    b.Property<DateTime>("Date");
+
+                    b.Property<byte>("GenreId");
+
+                    b.Property<string>("User")
+                        .IsRequired();
+
+                    b.Property<string>("Venue")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GenreId");
+
+                    b.ToTable("Gigs");
+                });
+
+            modelBuilder.Entity("EFCorePoC.Models.InvoiceDbModels.Invoice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CustomerReference");
 
@@ -50,15 +85,29 @@ namespace EFCorePoC.Migrations
 
                     b.Property<int>("InvoiceNumber");
 
+                    b.Property<decimal>("ItemNet");
+
                     b.Property<int>("NumberOfItems");
 
-                    b.Property<int?>("ProductId");
+                    b.Property<decimal>("Quantity");
+
+                    b.Property<decimal>("TaxRate");
+
+                    b.Property<decimal>("TotalGross");
+
+                    b.Property<decimal>("TotalNet");
+
+                    b.Property<decimal>("TotalTax");
+
+                    b.Property<int>("customerId");
+
+                    b.Property<int>("productId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("customerId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("productId");
 
                     b.ToTable("Invoices");
                 });
@@ -88,15 +137,25 @@ namespace EFCorePoC.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("EFCorePoC.Models.InvoiceDbModels.Gig", b =>
+                {
+                    b.HasOne("EFCorePoC.Models.InvoiceDbModels.Genre", "Genre")
+                        .WithMany()
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("EFCorePoC.Models.InvoiceDbModels.Invoice", b =>
                 {
                     b.HasOne("EFCorePoC.Models.InvoiceDbModels.Customer", "Customer")
                         .WithMany()
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("customerId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("EFCorePoC.Models.InvoiceDbModels.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("productId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

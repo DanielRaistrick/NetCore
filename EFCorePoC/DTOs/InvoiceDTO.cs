@@ -19,6 +19,18 @@ namespace EFCorePoC.DTOs
         public DateTime InvoiceDate { get; set; }
         [Display(Name = "Invoice Number")]
         public int InvoiceNumber { get; set; }
+        [Display(Name = "Quantity")]
+        public decimal Quantity { get; set; }
+        [Display(Name = "Item Net")]
+        public decimal ItemNet { get; set; }
+        [Display(Name = "Total Net")]
+        public decimal TotalNet { get; set; }
+        [Display(Name = "Tax Rate")]
+        public decimal TaxRate{ get; set; }
+        [Display(Name = "Total Tax")]
+        public decimal TotalTax { get; set; }
+        [Display(Name = "Total Gross")]
+        public decimal TotalGross { get; set; }
 
         public Invoice ConvertDTOToInvoice(InvoiceDTO dto, CustomerDTO custDTO, ProductDTO productDTO)
         {
@@ -33,6 +45,12 @@ namespace EFCorePoC.DTOs
             invoice.Customer.CustomerName = custDTO.CustomerName;
             invoice.CustomerReference = dto.CustomerReference;
             invoice.InvoiceNumber = dto.InvoiceNumber;
+            invoice.Quantity = dto.Quantity;
+            invoice.ItemNet = dto.ItemNet;
+            invoice.TotalNet = dto.TotalNet;
+            invoice.TotalTax = dto.TotalTax;
+            invoice.TotalGross = dto.TotalGross;
+            invoice.TaxRate = dto.TaxRate;
             invoice.InvoiceDate = dto.InvoiceDate;
             invoice.Product.Id = productDTO.Id;
             invoice.Product.Location = productDTO.Location;

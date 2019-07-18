@@ -11,20 +11,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EFCorePoC.Controllers
 {
+    
     public class InvoiceController : Controller
     {
         private readonly IInvoiceService _service;
-
+        
         public InvoiceController(IInvoiceService service)
         {
             _service = service;
         }
-
+        
         public IActionResult Index()
         {
             return View();
         }
-
+        
         public IActionResult AddNewInvoice()
         {
             var viewModel = new AddNewInvoiceViewModel();
@@ -34,7 +35,7 @@ namespace EFCorePoC.Controllers
 
             return View(viewModel);
         }
-
+        
         [HttpPost]
         public IActionResult AddNewInvoice(AddNewInvoiceViewModel viewModel)
         {
@@ -42,17 +43,21 @@ namespace EFCorePoC.Controllers
 
             return View("Index");
         }
-
+        
         public IActionResult DeleteInvoice()
         {
             return View();
         }
-
+        
         [HttpPost]
         public IActionResult DeleteInvoice(DeleteInvoiceViewModel viewModel)
         {
             _service.DeleteInvoice(viewModel.idToDelete);
             return View();
         }
+        
+        
+        
+
     }
 }

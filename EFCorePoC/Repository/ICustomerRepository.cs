@@ -10,10 +10,17 @@ namespace EFCorePoC.Repository
     {
         void CreateCustomer(Customer cust);
 
+        void UpdateCustomer(Customer cust);
+
         void DeleteCustomer(int id);
 
         //note - delete this call when we have Chris/Nigel's end point
         List<Customer> ReturnAllCustomers();
-        Customer ReturnCustomerById(int id);
+
+        IQueryable<Customer> ReturnCustomer(int id);
+        IEnumerable<Customer> ReturnCustomerById(int customerId);
+
+        Customer ReturnCustomerByIdOld(int id);
+
     }
 }

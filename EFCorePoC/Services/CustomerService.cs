@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EFCorePoC.DTOs;
+using EFCorePoC.Models.InvoiceDbModels;
 using EFCorePoC.Repository;
 
 namespace EFCorePoC.Services
@@ -14,7 +15,7 @@ namespace EFCorePoC.Services
         public CustomerService(ICustomerRepository repository)
         {
             _repository = repository;
-        }
+        }        
 
         public void CreateCustomerDTO(CustomerDTO dto)
         {
@@ -41,12 +42,13 @@ namespace EFCorePoC.Services
             return allCustomerDTOList;
         }
 
-        public CustomerDTO ReturnCustomerById(int customerId)
+        public CustomerDTO ReturnCustomerByIdOld(int customerId)
         {
             //note - replace this with a call to the object cache ultimately
             CustomerDTO result = new CustomerDTO();
-            result.ConvertCustomerToDto(_repository.ReturnCustomerById(customerId));
+            result.ConvertCustomerToDto(_repository.ReturnCustomerByIdOld(customerId));
             return result;
         }
+
     }
 }

@@ -21,6 +21,11 @@ namespace EFCorePoC.Repository
             _context.Products.Add(product);
             _context.SaveChanges();
         }
+        public void UpdateProduct(Product product)
+        {
+            _context.Products.Update(product);
+            _context.SaveChanges();
+        }
 
         public void DeleteProduct(int id)
         {
@@ -34,9 +39,24 @@ namespace EFCorePoC.Repository
             return _context.Products.ToList();
         }
 
+        public IQueryable<Product> ReturnProduct(int id)
+        {
+
+            IQueryable<Product> returnProd = _context.Products.Where(c => c.Id == id);
+            //if (returnProd != null)
+            return returnProd;
+
+            //return null;
+        }
+
         public Product ReturnProductById(int id)
         {
             return _context.Products.Where(a => a.Id == id).SingleOrDefault();
+        }
+
+        public IEnumerable<Product> ReturnProductForInvoice(int id)
+        {
+            return _context.Products.Where(c => c.Id == id).ToList();
         }
     }
 }

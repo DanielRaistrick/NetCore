@@ -12,5 +12,10 @@ namespace EFCorePoC.Repository
         void DeleteProduct(int id);
         List<Product> ReturnAllProducts();
         Product ReturnProductById(int id);
+        IQueryable<Product> ReturnProduct(int id);
+
+        void UpdateProduct(Product product);
+
+        IEnumerable<Product> ReturnProductForInvoice(int productId);
     }
 }
